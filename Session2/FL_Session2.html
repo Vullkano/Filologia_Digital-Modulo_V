@@ -3,7 +3,7 @@
 <html lang="en">
 <head><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>FL_Session1</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>FL_Session2</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <style type="text/css">
     pre { line-height: 125%; }
 td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
@@ -7487,7 +7487,7 @@ a.anchor-link {
 <h3 style="font-size: 30px; font-weight: bold; color: #555; max-width: 80%; line-height: 1.3;">
         Para além da edição: <span style="font-weight: normal; color: #666;">o digital na investigação linguística</span>
 </h3>
-<h4 style="font-size: 26px; font-weight: bold; color: #333; background-color: #e0e0e0; padding: 10px 20px; border-radius: 8px; margin-top: 25px;">Sessão 1 - Conceitos básicos de Python</h4>
+<h4 style="font-size: 26px; font-weight: bold; color: #333; background-color: #e0e0e0; padding: 10px 20px; border-radius: 8px; margin-top: 25px;">Sessão 2 - Conceitos básicos de Python</h4>
 <img alt="No description has been provided for this image" src="https://filologiadigitalcl.wordpress.com/wp-content/uploads/2024/11/figure05.png?w=1024" style="width: 80%; max-width: 600px; margin-top: 30px; border-radius: 10px; box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);"/>
 </div>
 </div>
@@ -7577,17 +7577,21 @@ a.anchor-link {
 </head>
 <body>
 <h2><b>Índice</b></h2>
+<ol start="0">
+<li><a href="#1">Aquecimento</a></li>
+<li><a href="#2">Invocação, Recursividade e Input/Output</a></li>
 <ol>
-<li><a href="#1">Funções e Parâmetros</a></li>
-<ol>
-<li><a href="#1.1">Exercicios</a></li>
+<li><a href="#2.1">Exercicios - Funções e Recursão</a></li>
+<li><a href="#2.2">Exercicios - Procedimentos e Input/Output</a></li>
 </ol>
-<li><a href="#2">Variáveis e Estruturas de Controlo</a></li>
+<li><a href="#3">Objetos e loop for</a></li>
 <ol>
-<li><a href="#2.1">Exercicios</a></li>
+<li><a href="#3.1">Exercicios - Objetos e loop for</a></li>
+<li><a href="#3.2">Desafio</a></li>
+</ol>
 </ol>
 <footer></footer>
-</ol></body>
+</body>
 </html>
 </div>
 </div>
@@ -7600,7 +7604,7 @@ a.anchor-link {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h1 id=""><a class="anchor" id="1"></a><a class="anchor-link" href="#">¶</a></h1><blockquote>
-<h1 id="1.-Fun%C3%A7%C3%B5es-e-Par%C3%A2metros"><strong>1. Funções e Parâmetros</strong><a class="anchor-link" href="#1.-Fun%C3%A7%C3%B5es-e-Par%C3%A2metros">¶</a></h1></blockquote>
+<h1 id="1.-Aquecimento"><strong>1. Aquecimento</strong><a class="anchor-link" href="#1.-Aquecimento">¶</a></h1></blockquote>
 </div>
 </div>
 </div>
@@ -7611,233 +7615,9 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="%F0%9F%93%8C-Objetivos-do-T%C3%B3pico-1">📌 Objetivos do <strong>Tópico 1</strong><a class="anchor-link" href="#%F0%9F%93%8C-Objetivos-do-T%C3%B3pico-1">¶</a></h2><blockquote>
-<h3 id="%E2%9C%85-Compreender-e-utilizar-Fun%C3%A7%C3%B5es">✅ Compreender e utilizar Funções<a class="anchor-link" href="#%E2%9C%85-Compreender-e-utilizar-Fun%C3%A7%C3%B5es">¶</a></h3></blockquote>
-<ul>
-<li>Saber definir funções em Python com <code>def()</code>.</li>
-<li>Entender a diferença entre <strong>parâmetros</strong> e <strong>argumentos</strong>.</li>
-</ul>
-<blockquote>
-<h3 id="%F0%9F%94%84-Instru%C3%A7%C3%A3o-de-Devolu%C3%A7%C3%A3o-(return)">🔄 Instrução de Devolução (<code>return</code>)<a class="anchor-link" href="#%F0%9F%94%84-Instru%C3%A7%C3%A3o-de-Devolu%C3%A7%C3%A3o-(return)">¶</a></h3></blockquote>
-<ul>
-<li>Compreender o uso da palavra-chave <code>return</code> para devolver valores de uma função.</li>
-</ul>
-<blockquote>
-<h3 id="%F0%9F%94%A2-Tipos-de-Dados-Primitivos">🔢 Tipos de Dados Primitivos<a class="anchor-link" href="#%F0%9F%94%A2-Tipos-de-Dados-Primitivos">¶</a></h3></blockquote>
-<ul>
-<li><code>int</code> → Números inteiros (ex: <code>5</code>, <code>-10</code>).</li>
-<li><code>float</code> → Números decimais (ex: <code>3.14</code>, <code>-2.5</code>).</li>
-<li><code>bool</code> → Valores lógicos (<code>True</code> ou <code>False</code>).</li>
-</ul>
-<blockquote>
-<h3 id="%F0%9F%94%81-Convers%C3%A3o-Entre-Tipos-Num%C3%A9ricos">🔁 Conversão Entre Tipos Numéricos<a class="anchor-link" href="#%F0%9F%94%81-Convers%C3%A3o-Entre-Tipos-Num%C3%A9ricos">¶</a></h3></blockquote>
-<ul>
-<li><code>int(valor)</code> → Converte para inteiro.</li>
-<li><code>float(valor)</code> → Converte para decimal.</li>
-</ul>
-<hr/>
-<blockquote>
-<h2 id="%F0%9F%94%94-Informa%C3%A7%C3%A3o-a-Reter-%F0%9F%94%94">🔔 <strong>Informação a Reter</strong> 🔔<a class="anchor-link" href="#%F0%9F%94%94-Informa%C3%A7%C3%A3o-a-Reter-%F0%9F%94%94">¶</a></h2></blockquote>
-<h4 id="%E2%9E%95%E2%9E%96-Operadores-Aritm%C3%A9ticos">➕➖ Operadores Aritméticos<a class="anchor-link" href="#%E2%9E%95%E2%9E%96-Operadores-Aritm%C3%A9ticos">¶</a></h4><table>
-<thead>
-<tr>
-<th>Operador</th>
-<th>Descrição</th>
-<th>Exemplo</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>+</code></td>
-<td>Adição</td>
-<td><code>2 + 3 → 5</code></td>
-</tr>
-<tr>
-<td><code>-</code></td>
-<td>Subtração</td>
-<td><code>5 - 2 → 3</code></td>
-</tr>
-<tr>
-<td><code>*</code></td>
-<td>Multiplicação</td>
-<td><code>4 * 3 → 12</code></td>
-</tr>
-<tr>
-<td><code>/</code></td>
-<td>Divisão</td>
-<td><code>10 / 2 → 5.0</code></td>
-</tr>
-<tr>
-<td><code>//</code></td>
-<td>Divisão inteira</td>
-<td><code>10 // 3 → 3</code></td>
-</tr>
-<tr>
-<td><code>%</code></td>
-<td>Resto da divisão</td>
-<td><code>10 % 3 → 1</code></td>
-</tr>
-<tr>
-<td><code>**</code></td>
-<td>Exponenciação</td>
-<td><code>2 ** 3 → 8</code></td>
-</tr>
-</tbody>
-</table>
-<h4 id="%E2%9A%96%EF%B8%8F-Operadores-Relacionais">⚖️ Operadores Relacionais<a class="anchor-link" href="#%E2%9A%96%EF%B8%8F-Operadores-Relacionais">¶</a></h4><table>
-<thead>
-<tr>
-<th>Operador</th>
-<th>Significado</th>
-<th>Exemplo</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>==</code></td>
-<td>Igualdade</td>
-<td><code>5 == 5 → True</code></td>
-</tr>
-<tr>
-<td><code>!=</code></td>
-<td>Diferente</td>
-<td><code>5 != 3 → True</code></td>
-</tr>
-<tr>
-<td><code>&lt;</code></td>
-<td>Menor que</td>
-<td><code>3 &lt; 5 → True</code></td>
-</tr>
-<tr>
-<td><code>&gt;</code></td>
-<td>Maior que</td>
-<td><code>10 &gt; 2 → True</code></td>
-</tr>
-<tr>
-<td><code>&lt;=</code></td>
-<td>Menor ou igual</td>
-<td><code>5 &lt;= 5 → True</code></td>
-</tr>
-<tr>
-<td><code>&gt;=</code></td>
-<td>Maior ou igual</td>
-<td><code>7 &gt;= 3 → True</code></td>
-</tr>
-</tbody>
-</table>
-<h4 id="%F0%9F%94%80-Operadores-L%C3%B3gicos">🔀 Operadores Lógicos<a class="anchor-link" href="#%F0%9F%94%80-Operadores-L%C3%B3gicos">¶</a></h4><table>
-<thead>
-<tr>
-<th>Operador</th>
-<th>Significado</th>
-<th>Exemplo</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>not</code></td>
-<td>Negação</td>
-<td><code>not True → False</code></td>
-</tr>
-<tr>
-<td><code>and</code></td>
-<td>Conjunção</td>
-<td><code>True and False → False</code></td>
-</tr>
-<tr>
-<td><code>or</code></td>
-<td>Disjunção</td>
-<td><code>True or False → True</code></td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id=""><a class="anchor" id="1.1."></a><a class="anchor-link" href="#">¶</a></h1><blockquote>
-<h1 id="1.1.-Exercicios"><strong>1.1. Exercicios</strong><a class="anchor-link" href="#1.1.-Exercicios">¶</a></h1></blockquote>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="%F0%9F%93%9D-Exerc%C3%ADcio:-Implementa%C3%A7%C3%A3o-de-Fun%C3%A7%C3%B5es">📝 Exercício: Implementação de Funções<a class="anchor-link" href="#%F0%9F%93%9D-Exerc%C3%ADcio:-Implementa%C3%A7%C3%A3o-de-Fun%C3%A7%C3%B5es">¶</a></h2><p>Desenvolva uma função para cada um dos objetivos apresentados nas alíneas seguintes. Todas as funções devem ser definidas utilizando apenas a instrução de retorno (<code>return ...</code>).</p>
-<p>Para cada função, escreva expressões de teste que utilizem diferentes argumentos, garantindo que todas as possibilidades de resultados são abrangidas (por exemplo, verdadeiro/falso ou casos de arredondamento, como por excesso e por defeito).</p>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="%E2%9C%A8-Exerc%C3%ADcio-1:-Obter-o-dobro-de-um-n%C3%BAmero.">✨ <strong>Exercício 1</strong>: Obter o dobro de um número.<a class="anchor-link" href="#%E2%9C%A8-Exerc%C3%ADcio-1:-Obter-o-dobro-de-um-n%C3%BAmero.">¶</a></h3><p>A definição desta função é muito semelhante ao exemplo dado inicialmente.</p>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="%E2%9C%A8-Exerc%C3%ADcio-2:-Obter-a-diferen%C3%A7a-entre-dois-n%C3%BAmeros-(dados-em-dois-par%C3%A2metros).">✨ <strong>Exercício 2</strong>: Obter a diferença entre dois números (dados em dois parâmetros).<a class="anchor-link" href="#%E2%9C%A8-Exerc%C3%ADcio-2:-Obter-a-diferen%C3%A7a-entre-dois-n%C3%BAmeros-(dados-em-dois-par%C3%A2metros).">¶</a></h3>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="%E2%9C%A8-Exerc%C3%ADcio-3:-Obter-o-valor-absoluto-de-um-n%C3%BAmero.">✨ <strong>Exercício 3</strong>: Obter o valor absoluto de um número.<a class="anchor-link" href="#%E2%9C%A8-Exerc%C3%ADcio-3:-Obter-o-valor-absoluto-de-um-n%C3%BAmero.">¶</a></h3><div class="highlight"><pre><span></span><span class="c1"># Exemplos:</span>
-    <span class="n">absolute</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span> <span class="err">→</span> <span class="mi">2</span> 
-    <span class="n">absolute</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="err">→</span> <span class="mi">4</span>
+<h3 id="%E2%9C%A8-Aquecimento-1:-Obter-o-n%C3%BAmero-de-divisores-de-um-n%C3%BAmero-inteiro-n."><a id="tp1"></a>✨ <strong>Aquecimento 1</strong>: Obter o número de divisores de um número inteiro n.<a class="anchor-link" href="#%E2%9C%A8-Aquecimento-1:-Obter-o-n%C3%BAmero-de-divisores-de-um-n%C3%BAmero-inteiro-n.">¶</a></h3><p>Esta função deverá iterar sobre os números naturais até n, contando os números que são divisores de n.
+Exemplo:</p>
+<div class="highlight"><pre><span></span><span class="n">number_of_divisors</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="err">→</span> <span class="mi">4</span>     <span class="c1"># (1, 2, 4, 8)</span>
 </pre></div>
 </div>
 </div>
@@ -7863,17 +7643,10 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="%E2%9C%A8-Exerc%C3%ADcio-4:-Obter-a-Percentagem-de-um-Valor-Relativamente-a-um-Total">✨ <strong>Exercício 4</strong>: Obter a Percentagem de um Valor Relativamente a um Total<a class="anchor-link" href="#%E2%9C%A8-Exerc%C3%ADcio-4:-Obter-a-Percentagem-de-um-Valor-Relativamente-a-um-Total">¶</a></h3><p>Dado um valor e um total, calcular a percentagem correspondente. O resultado deve ser um número real (<code>float</code>) no intervalo <code>[0.0, 1.0]</code>.</p>
-<p>📌 <strong>Exemplo:</strong><br/>
-Se tivermos <code>2</code> num total de <code>8</code>, a percentagem será <code>0.25</code> (ou 25%).</p>
-<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">percentage</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">total</span><span class="p">):</span>
-    <span class="o">...</span>
-
-<span class="c1"># Testes</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">percentage</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>   <span class="c1"># 0.253</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">percentage</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">20</span><span class="p">))</span>  <span class="c1"># 0.25</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">percentage</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>  <span class="c1"># 0.0</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">percentage</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>  <span class="c1"># 0.0 (caso de divisão por zero tratado)</span>
+<h3 id="%E2%9C%A8-Aquecimento-2:-Obter-o-somat%C3%B3rio-dos-divisores-pr%C3%B3prios-de-um-n%C3%BAmero-inteiro-n">✨ <strong>Aquecimento 2</strong>: Obter o somatório dos divisores próprios de um número inteiro n<a class="anchor-link" href="#%E2%9C%A8-Aquecimento-2:-Obter-o-somat%C3%B3rio-dos-divisores-pr%C3%B3prios-de-um-n%C3%BAmero-inteiro-n">¶</a></h3><p>Note que o conjunto dos divisores próprios exclui o próprio número.</p>
+<p>Esta função deverá iterar sobre os números naturais até <em>n</em> (exclusive), acumulando os números que são divisores de <em>n</em>.<br/>
+Exemplo:</p>
+<div class="highlight"><pre><span></span><span class="n">sum_of_divisors</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span> <span class="err">→</span> <span class="mi">6</span>     <span class="c1"># (1 + 2 + 3)</span>
 </pre></div>
 </div>
 </div>
@@ -7889,184 +7662,6 @@ Se tivermos <code>2</code> num total de <code>8</code>, a percentagem será <cod
 <div class="highlight hl-ipython3"><pre><span></span> 
 </pre></div>
 </div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="%E2%9C%A8-Exerc%C3%ADcio-5:-Obter-a-m%C3%A9dia-entre-dois-n%C3%BAmeros-inteiros.">✨ <strong>Exercício 5</strong>: Obter a média entre dois números inteiros.<a class="anchor-link" href="#%E2%9C%A8-Exerc%C3%ADcio-5:-Obter-a-m%C3%A9dia-entre-dois-n%C3%BAmeros-inteiros.">¶</a></h3><p>Note que a média entre dois inteiros não é necessariamente um inteiro, pelo que o tipo de retorno deverá ser decimal (<code>float</code>).</p>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="%E2%9C%A8-Exerc%C3%ADcio-6:-Arredondar-um-n%C3%BAmero-decimal-para-inteiro.">✨ <strong>Exercício 6</strong>: Arredondar um número decimal para inteiro.<a class="anchor-link" href="#%E2%9C%A8-Exerc%C3%ADcio-6:-Arredondar-um-n%C3%BAmero-decimal-para-inteiro.">¶</a></h3><p>Nesta função é necessário aplicar a truncagem (converter um decimal para <code>inteiro</code>, descartando a parte decimal).</p>
-<p>📌 <strong>Exemplos:</strong></p>
-<div class="highlight"><pre><span></span><span class="c1"># Testes</span>
-    <span class="n">rounded</span><span class="p">(</span><span class="mf">4.3</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="mi">4</span>
-    <span class="n">rounded</span><span class="p">(</span><span class="mf">4.7</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="mi">5</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="%E2%9C%A8-Exerc%C3%ADcio-7:-Saber-se-um-n%C3%BAmero-inteiro-%C3%A9-negativo.">✨ <strong>Exercício 7</strong>: Saber se um número inteiro é negativo.<a class="anchor-link" href="#%E2%9C%A8-Exerc%C3%ADcio-7:-Saber-se-um-n%C3%BAmero-inteiro-%C3%A9-negativo.">¶</a></h3><p>O valor devolvido pela função deverá indicar se o número passado como argumento é ou não negativo, mediante um valor booleano (<code>bool</code>, que assume apenas os valores True ou False).</p>
-<p>📌 <strong>Exemplos:</strong></p>
-<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">is_negative</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="o">...</span>
-
-<span class="c1"># Testes</span>
-    <span class="n">is_negative</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="kc">True</span>
-    <span class="n">is_negative</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="kc">False</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="%E2%9C%A8-Exerc%C3%ADcio-8:-Utilizando-o-operador-aritm%C3%A9tico-de-divis%C3%A3o-inteira-(%25)">✨ <strong>Exercício 8</strong>: Utilizando o operador aritmético de divisão inteira (%)<a class="anchor-link" href="#%E2%9C%A8-Exerc%C3%ADcio-8:-Utilizando-o-operador-aritm%C3%A9tico-de-divis%C3%A3o-inteira-(%25)">¶</a></h3><h4 id="a)-Saber-se-um-n%C3%BAmero-inteiro-%C3%A9-impar.">a) Saber se um número inteiro é impar.<a class="anchor-link" href="#a)-Saber-se-um-n%C3%BAmero-inteiro-%C3%A9-impar.">¶</a></h4>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h4 id="b)-Saber-se-um-n%C3%BAmero-inteiro-%C3%A9-par.">b) Saber se um número inteiro é par.<a class="anchor-link" href="#b)-Saber-se-um-n%C3%BAmero-inteiro-%C3%A9-par.">¶</a></h4>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h4 id="c)-Saber-se-um-n%C3%BAmero-inteiro-%C3%A9-m%C3%BAltiplo-de-outro.">c) Saber se um número inteiro é múltiplo de outro.<a class="anchor-link" href="#c)-Saber-se-um-n%C3%BAmero-inteiro-%C3%A9-m%C3%BAltiplo-de-outro.">¶</a></h4>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="%E2%9C%A8-Exerc%C3%ADcio-9:-Saber-se-um-car%C3%A1cter-corresponde-a-uma-vogal-min%C3%BAscula.">✨ <strong>Exercício 9</strong>: Saber se um carácter corresponde a uma vogal minúscula.<a class="anchor-link" href="#%E2%9C%A8-Exerc%C3%ADcio-9:-Saber-se-um-car%C3%A1cter-corresponde-a-uma-vogal-min%C3%BAscula.">¶</a></h3><div class="highlight"><pre><span></span><span class="n">Exemplos</span><span class="p">:</span>
-
-    <span class="n">is_vowel</span><span class="p">(</span><span class="s1">'a'</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="kc">True</span>
-    <span class="n">is_vowel</span><span class="p">(</span><span class="s1">'z'</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="kc">False</span>
-</pre></div>
 </div>
 </div>
 </div>
@@ -8078,7 +7673,7 @@ Se tivermos <code>2</code> num total de <code>8</code>, a percentagem será <cod
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h1 id=""><a class="anchor" id="2"></a><a class="anchor-link" href="#">¶</a></h1><blockquote>
-<h1 id="2.-Fun%C3%A7%C3%B5es-e-Par%C3%A2metros"><strong>2. Funções e Parâmetros</strong><a class="anchor-link" href="#2.-Fun%C3%A7%C3%B5es-e-Par%C3%A2metros">¶</a></h1></blockquote>
+<h1 id="2.-Invoca%C3%A7%C3%A3o,-Recursividade-e-Input/Output"><strong>2. Invocação, Recursividade e Input/Output</strong><a class="anchor-link" href="#2.-Invoca%C3%A7%C3%A3o,-Recursividade-e-Input/Output">¶</a></h1></blockquote>
 </div>
 </div>
 </div>
@@ -8089,169 +7684,161 @@ Se tivermos <code>2</code> num total de <code>8</code>, a percentagem será <cod
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="%F0%9F%8E%AF-Objetivos-do-T%C3%B3pico-2">🎯 Objetivos do <strong>Tópico 2</strong><a class="anchor-link" href="#%F0%9F%8E%AF-Objetivos-do-T%C3%B3pico-2">¶</a></h2><ul>
-<li><p><strong>Instrução de atribuição</strong>: <code>=</code><br/>
-Atribui um valor a uma variável. Exemplo: <code>x = 5</code>, onde <code>x</code> recebe o valor 5.</p>
-</li>
-<li><p><strong>Estrutura de seleção</strong>: <code>if</code></p>
-</li>
-</ul>
-<div class="highlight"><pre><span></span><span class="c1"># Permite tomar decisões com base em condições.</span>
-<span class="c1"># Exemplo:  </span>
-<span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"Maior que 10"</span><span class="p">)</span>
-</pre></div>
+<h2 id="%F0%9F%8E%AF-Objetivos-da-Aula">🎯 <strong>Objetivos da Aula</strong><a class="anchor-link" href="#%F0%9F%8E%AF-Objetivos-da-Aula">¶</a></h2><blockquote>
+<h3 id="%E2%9C%85-Definir-Fun%C3%A7%C3%B5es-e-Utilizar-Recurs%C3%A3o">✅ <strong>Definir Funções e Utilizar Recursão</strong><a class="anchor-link" href="#%E2%9C%85-Definir-Fun%C3%A7%C3%B5es-e-Utilizar-Recurs%C3%A3o">¶</a></h3></blockquote>
 <ul>
-<li><strong>Estrutura de repetição</strong>: <code>while</code></li>
+<li>Experimentar a definição de funções que invocam outras funções.</li>
+<li>Compreender a invocação <strong>recursiva</strong> de funções.</li>
 </ul>
-<div class="highlight"><pre><span></span><span class="c1"># Executa um bloco de código repetidamente enquanto a condição for verdadeira. </span>
-<span class="c1"># Exemplo:</span>
-<span class="k">while</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
-    <span class="n">x</span> <span class="o">+=</span> <span class="mi">1</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id=""><a class="anchor" id="2.1."></a><a class="anchor-link" href="#">¶</a></h1><blockquote>
-<h1 id="2.1.-Exercicios"><strong>2.1. Exercicios</strong><a class="anchor-link" href="#2.1.-Exercicios">¶</a></h1></blockquote>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="%E2%9C%A8-Exerc%C3%ADcio-1:-Obter-o-quociente-da-divis%C3%A3o-inteira,-sem-recorrer-ao-operador-de-divis%C3%A3o-inteira-(//).">✨ <strong>Exercício 1</strong>: Obter o quociente da divisão inteira, sem recorrer ao operador de divisão inteira (<code>//</code>).<a class="anchor-link" href="#%E2%9C%A8-Exerc%C3%ADcio-1:-Obter-o-quociente-da-divis%C3%A3o-inteira,-sem-recorrer-ao-operador-de-divis%C3%A3o-inteira-(//).">¶</a></h3><div class="highlight"><pre><span></span><span class="c1"># Exemplos:</span>
-
-        <span class="n">divide</span><span class="p">(</span><span class="mi">31</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span> <span class="err">→</span> <span class="mi">6</span>
-        <span class="n">divide</span><span class="p">(</span><span class="mi">35</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span> <span class="err">→</span> <span class="mi">5</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="%E2%9C%A8-Exerc%C3%ADcio-2:-Obter-uma-pot%C3%AAncia-de-2,-i.e.-$2%5En$-(sem-usar-o-operador-**),-dado-o-expoente-num-argumento-que-se-assume-ser-um-n%C3%BAmero-natural-n-(diferente-de-zero).">✨ <strong>Exercício 2</strong>: Obter uma potência de 2, i.e. $2^n$ (sem usar o operador <code>**</code>), dado o expoente num argumento que se assume ser um número natural <em>n</em> (diferente de zero).<a class="anchor-link" href="#%E2%9C%A8-Exerc%C3%ADcio-2:-Obter-uma-pot%C3%AAncia-de-2,-i.e.-$2%5En$-(sem-usar-o-operador-**),-dado-o-expoente-num-argumento-que-se-assume-ser-um-n%C3%BAmero-natural-n-(diferente-de-zero).">¶</a></h3><div class="highlight"><pre><span></span><span class="c1"># Exemplo:</span>
-
-        <span class="n">power_of_two</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="err">→</span> <span class="mi">16</span>
-        <span class="n">power_of_two</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="err">→</span> <span class="mi">256</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="%E2%9C%A8-Exerc%C3%ADcio-3:-Obter-o-somat%C3%B3rio-dos-n%C3%BAmeros-naturais-pares-compreendidos-num-dado-intervalo-fechado.">✨ <strong>Exercício 3</strong>: Obter o somatório dos números naturais pares compreendidos num dado intervalo fechado.<a class="anchor-link" href="#%E2%9C%A8-Exerc%C3%ADcio-3:-Obter-o-somat%C3%B3rio-dos-n%C3%BAmeros-naturais-pares-compreendidos-num-dado-intervalo-fechado.">¶</a></h3><div class="highlight"><pre><span></span><span class="c1"># Exemplo:</span>
-
-        <span class="n">sum_of_even_numbers_between</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span> <span class="err">→</span> <span class="mi">18</span>     <span class="c1"># (4 + 6 + 8)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="%E2%9C%A8-Exerc%C3%ADcio-4:-Obter-o-primeiro-algarismo-da-representa%C3%A7%C3%A3o-decimal-de-um-n%C3%BAmero-inteiro.">✨ <strong>Exercício 4</strong>: Obter o primeiro algarismo da representação decimal de um número inteiro.<a class="anchor-link" href="#%E2%9C%A8-Exerc%C3%ADcio-4:-Obter-o-primeiro-algarismo-da-representa%C3%A7%C3%A3o-decimal-de-um-n%C3%BAmero-inteiro.">¶</a></h3><div class="highlight"><pre><span></span><span class="c1"># Exemplos:</span>
-
-        <span class="n">first_digit</span><span class="p">(</span><span class="mi">2011</span><span class="p">)</span> <span class="err">→</span> <span class="mi">2</span>
-        <span class="n">first_digit</span><span class="p">(</span><span class="mi">1998</span><span class="p">)</span> <span class="err">→</span> <span class="mi">1</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <blockquote>
-<h2 id="Exerc%C3%ADcios-extras"><strong>Exercícios extras</strong><a class="anchor-link" href="#Exerc%C3%ADcios-extras">¶</a></h2></blockquote>
-<h3 id="%E2%9C%A8-Exerc%C3%ADcio-5:-Obter-o-n-%C3%A9simo-n%C3%BAmero-da-sequ%C3%AAncia-de-Fibonacci,-considerando-que-o-primeiro-n%C3%BAmero-da-sequ%C3%AAncia-tem-n%C3%BAmero-de-ordem-zero.">✨ <strong>Exercício 5</strong>: Obter o n-ésimo número da <a href="https://pt.wikipedia.org/wiki/Sequ%C3%AAncia_de_Fibonacci">sequência de Fibonacci</a>, considerando que o primeiro número da sequência tem número de ordem zero.<a class="anchor-link" href="#%E2%9C%A8-Exerc%C3%ADcio-5:-Obter-o-n-%C3%A9simo-n%C3%BAmero-da-sequ%C3%AAncia-de-Fibonacci,-considerando-que-o-primeiro-n%C3%BAmero-da-sequ%C3%AAncia-tem-n%C3%BAmero-de-ordem-zero.">¶</a></h3><p>Recorde que os primeiros números da sequência de Fibonacci são 0, 1, 1, 2, 3, 5, 8, 13, 21, ...</p>
-<div class="highlight"><pre><span></span><span class="n">Exemplo</span><span class="p">:</span>
-
-        <span class="n">fibonacci</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span> <span class="err">→</span> <span class="mi">13</span>
+<h3 id="%F0%9F%94%84-Procedimentos">🔄 <strong>Procedimentos</strong><a class="anchor-link" href="#%F0%9F%94%84-Procedimentos">¶</a></h3></blockquote>
+<ul>
+<li>Definir e utilizar <strong>procedimentos</strong> em Python.</li>
+</ul>
+<blockquote>
+<h3 id="%F0%9F%92%BB-Intera%C3%A7%C3%A3o-com-o-Utilizador">💻 <strong>Interação com o Utilizador</strong><a class="anchor-link" href="#%F0%9F%92%BB-Intera%C3%A7%C3%A3o-com-o-Utilizador">¶</a></h3></blockquote>
+<ul>
+<li>Desenvolver código que receba <strong>input</strong> e forneça <strong>output</strong> interativo.</li>
+</ul>
+<blockquote>
+<h3 id="%F0%9F%94%81-Utiliza%C3%A7%C3%A3o-de-Vari%C3%A1veis-e-Estruturas-de-Controlo">🔁 <strong>Utilização de Variáveis e Estruturas de Controlo</strong><a class="anchor-link" href="#%F0%9F%94%81-Utiliza%C3%A7%C3%A3o-de-Vari%C3%A1veis-e-Estruturas-de-Controlo">¶</a></h3></blockquote>
+<ul>
+<li><strong>Iterações</strong>: Repetir tarefas com laços.</li>
+<li><strong>Acumulações</strong>: Armazenar valores ao longo do tempo.</li>
+<li><strong>Contagens</strong>: Realizar contagens e verificações.</li>
+<li><strong>Pesquisas</strong>: Localizar e comparar elementos.</li>
+</ul>
+<hr/>
+<blockquote>
+<h2 id="%F0%9F%94%94-Informa%C3%A7%C3%A3o-a-Reter-%F0%9F%94%94">🔔 <strong>Informação a Reter</strong> 🔔<a class="anchor-link" href="#%F0%9F%94%94-Informa%C3%A7%C3%A3o-a-Reter-%F0%9F%94%94">¶</a></h2></blockquote>
+<h4 id="%E2%9E%95%E2%9E%96-Fun%C3%A7%C3%B5es-e-Recurs%C3%A3o">➕➖ <strong>Funções e Recursão</strong><a class="anchor-link" href="#%E2%9E%95%E2%9E%96-Fun%C3%A7%C3%B5es-e-Recurs%C3%A3o">¶</a></h4><table>
+<thead>
+<tr>
+<th>Conceito</th>
+<th>Descrição</th>
+<th>Exemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Função</strong></td>
+<td>Definição de funções que executam tarefas específicas</td>
+<td><code>def soma(a, b): return a + b</code></td>
+</tr>
+<tr>
+<td><strong>Recursão</strong></td>
+<td>Função que chama a si mesma</td>
+<td><code>def fatorial(n): return n * fatorial(n-1)</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="%F0%9F%9B%A0-Procedimentos-e-Intera%C3%A7%C3%A3o">🛠 <strong>Procedimentos e Interação</strong><a class="anchor-link" href="#%F0%9F%9B%A0-Procedimentos-e-Intera%C3%A7%C3%A3o">¶</a></h4><table>
+<thead>
+<tr>
+<th>Conceito</th>
+<th>Descrição</th>
+<th>Exemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Procedimento</strong></td>
+<td>Função sem valor de retorno</td>
+<td><code>def saudacao(): print("Olá!")</code></td>
+</tr>
+<tr>
+<td><strong>Input/Output</strong></td>
+<td>Receber entrada do utilizador e fornecer saída</td>
+<td><code>nome = input("Qual é o teu nome?")</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="%F0%9F%94%81-Estruturas-de-Controlo">🔁 <strong>Estruturas de Controlo</strong><a class="anchor-link" href="#%F0%9F%94%81-Estruturas-de-Controlo">¶</a></h4><table>
+<thead>
+<tr>
+<th>Conceito</th>
+<th>Descrição</th>
+<th>Exemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Iteração</strong></td>
+<td>Repetir ações com laços</td>
+<td><code>i = 0; while i &lt; 5: print(i); i += 1</code></td>
+</tr>
+<tr>
+<td><strong>Acumulação</strong></td>
+<td>Somar valores ao longo do tempo</td>
+<td><code>soma = 0; soma += 10</code></td>
+</tr>
+<tr>
+<td><strong>Contagem</strong></td>
+<td>Contar quantas vezes algo ocorre</td>
+<td><code>contador = 0; if condição: contador += 1</code></td>
+</tr>
+<tr>
+<td><strong>Pesquisa</strong></td>
+<td>Localizar um elemento em uma lista</td>
+<td><code>if valor in lista: print("Encontrado!")</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id=""><a class="anchor" id="2.1."></a><a class="anchor-link" href="#">¶</a></h2><blockquote>
+<h2 id="2.1.-Exercicios---Fun%C3%A7%C3%B5es-e-Recurs%C3%A3o"><strong>2.1. Exercicios - Funções e Recursão</strong><a class="anchor-link" href="#2.1.-Exercicios---Fun%C3%A7%C3%B5es-e-Recurs%C3%A3o">¶</a></h2></blockquote>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h4 id="%E2%9C%A8-Exerc%C3%ADcio-1:-Defina-uma-fun%C3%A7%C3%A3o-que-recebe-como-argumento-um-n%C3%BAmero-natural-n-e-devolve-verdadeiro-caso-n-seja-primo,-ou-falso-caso-contr%C3%A1rio."><a id="ex1"></a>✨ <strong>Exercício 1</strong>: Defina uma função que recebe como argumento um número natural <em>n</em> e devolve verdadeiro caso <em>n</em> seja primo, ou falso caso contrário.<a class="anchor-link" href="#%E2%9C%A8-Exerc%C3%ADcio-1:-Defina-uma-fun%C3%A7%C3%A3o-que-recebe-como-argumento-um-n%C3%BAmero-natural-n-e-devolve-verdadeiro-caso-n-seja-primo,-ou-falso-caso-contr%C3%A1rio.">¶</a></h4><p>Exemplo:</p>
+<div class="highlight"><pre><span></span><span class="n">is_prime</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span> <span class="err">→</span> <span class="n">false</span>
+</pre></div>
+<p><strong>🔔 Nota:</strong> nesta função é útil invocar a função do <a href="#tp1"><strong>aquecimento 1</strong></a> do trabalho prévio, que calcula quantos divisores tem um número. A função pode ser invocada da seguinte forma:</p>
+<div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="n">number_of_divisors</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
+</pre></div>
+<p>Após a instrução executar, a variável n tomará o valor devolvido pela invocação da função <code>number_of_divisors()</code>.</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h4 id="%E2%9C%A8-Exerc%C3%ADcio-2:-Defina-uma-fun%C3%A7%C3%A3o-que-recebe-como-argumento-um-n%C3%BAmero-natural-n-e-devolve-o-n%C3%BAmero-de-primos-at%C3%A9-n-(inclusive).">✨ <strong>Exercício 2</strong>: Defina uma função que recebe como argumento um número natural n e devolve o número de primos até n (inclusive).<a class="anchor-link" href="#%E2%9C%A8-Exerc%C3%ADcio-2:-Defina-uma-fun%C3%A7%C3%A3o-que-recebe-como-argumento-um-n%C3%BAmero-natural-n-e-devolve-o-n%C3%BAmero-de-primos-at%C3%A9-n-(inclusive).">¶</a></h4><p>Exemplo:</p>
+<div class="highlight"><pre><span></span><span class="n">number_of_primes_up_to</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span> <span class="err">→</span> <span class="mi">5</span>       <span class="c1"># (2, 3, 5, 7, 11)</span>
 </pre></div>
 </div>
 </div>
@@ -8277,10 +7864,548 @@ Atribui um valor a uma variável. Exemplo: <code>x = 5</code>, onde <code>x</cod
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="%E2%9C%A8-Exerc%C3%ADcio-6:-Defina-uma-fun%C3%A7%C3%A3o-que-recebe-como-argumento-dois-n%C3%BAmeros-naturais-m-e-n-e-que-calcula-o-m%C3%A1ximo-divisor-comum-desses-dois-n%C3%BAmeros,-usando-o-algoritmo-de-Euclides.">✨ <strong>Exercício 6</strong>: Defina uma função que recebe como argumento dois números naturais <em>m</em> e <em>n</em> e que calcula o máximo divisor comum desses dois números, usando o <a href="http://pt.wikipedia.org/wiki/Algoritmo_de_Euclides">algoritmo de Euclides</a>.<a class="anchor-link" href="#%E2%9C%A8-Exerc%C3%ADcio-6:-Defina-uma-fun%C3%A7%C3%A3o-que-recebe-como-argumento-dois-n%C3%BAmeros-naturais-m-e-n-e-que-calcula-o-m%C3%A1ximo-divisor-comum-desses-dois-n%C3%BAmeros,-usando-o-algoritmo-de-Euclides.">¶</a></h3><div class="highlight"><pre><span></span><span class="n">Exemplo</span><span class="p">:</span>
-
-        <span class="n">gcd</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span> <span class="err">→</span> <span class="mi">5</span>
+<h4 id="%E2%9C%A8-Exerc%C3%ADcio-3:-Defina-uma-fun%C3%A7%C3%A3o-que-recebe-como-argumento-um-n%C3%BAmero-natural-n-e-devolve-o-somat%C3%B3rio-dos-n%C3%BAmeros-primos-menores-que-n.">✨ <strong>Exercício 3</strong>: Defina uma função que recebe como argumento um número natural n e devolve o somatório dos números primos menores que n.<a class="anchor-link" href="#%E2%9C%A8-Exerc%C3%ADcio-3:-Defina-uma-fun%C3%A7%C3%A3o-que-recebe-como-argumento-um-n%C3%BAmero-natural-n-e-devolve-o-somat%C3%B3rio-dos-n%C3%BAmeros-primos-menores-que-n.">¶</a></h4><p>Exemplo:</p>
+<div class="highlight"><pre><span></span><span class="n">sum_of_primes_smaller_than</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="err">→</span> <span class="mi">17</span>      <span class="c1"># (2 + 3 + 5 + 7)</span>
 </pre></div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h4 id="%E2%9C%A8-Exerc%C3%ADcio-4:-Defina-fun%C3%A7%C3%B5es-recursivas-para-calcular:">✨ <strong>Exercício 4</strong>: Defina funções recursivas para calcular:<a class="anchor-link" href="#%E2%9C%A8-Exerc%C3%ADcio-4:-Defina-fun%C3%A7%C3%B5es-recursivas-para-calcular:">¶</a></h4><h5 id="a)-o-n-%C3%A9simo-n%C3%BAmero-de-Fibonacci.">a) o n-ésimo número de Fibonacci.<a class="anchor-link" href="#a)-o-n-%C3%A9simo-n%C3%BAmero-de-Fibonacci.">¶</a></h5><p>$f(n)=\begin{cases}
+0 &amp; n=0\\
+1 &amp; n=1\\
+f(n-1)+f(n-2) &amp; outros\,casos
+\end{cases}$</p>
+<p>Exemplo:</p>
+<div class="highlight"><pre><span></span><span class="n">fibonacci</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span> <span class="err">→</span> <span class="mi">8</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h5 id="b)-o-fatorial-de-um-n%C3%BAmero.">b) o fatorial de um número.<a class="anchor-link" href="#b)-o-fatorial-de-um-n%C3%BAmero.">¶</a></h5><p>Exemplo:</p>
+<div class="highlight"><pre><span></span><span class="n">factorial</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="err">→</span> <span class="mi">120</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h5 id="c)-o-m%C3%A1ximo-divisor-comum-entre-dois-n%C3%BAmeros.">c) o máximo divisor comum entre dois números.<a class="anchor-link" href="#c)-o-m%C3%A1ximo-divisor-comum-entre-dois-n%C3%BAmeros.">¶</a></h5><p>Exemplo:</p>
+<div class="highlight"><pre><span></span><span class="n">gcd</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span> <span class="err">→</span> <span class="mi">5</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id=""><a class="anchor" id="2.2."></a><a class="anchor-link" href="#">¶</a></h2><blockquote>
+<h2 id="2.2.-Exercicios---Procedimentos-e-Input/Output"><strong>2.2. Exercicios - Procedimentos e Input/Output</strong><a class="anchor-link" href="#2.2.-Exercicios---Procedimentos-e-Input/Output">¶</a></h2></blockquote>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h4 id="%E2%9C%A8-Exerc%C3%ADcio-1:-Obter-um-n%C3%BAmero-inteiro-entre-m-e-n-introduzido-pelo-utilizador.">✨ <strong>Exercício 1</strong>: Obter um número inteiro entre <em>m</em> e <em>n</em> introduzido pelo utilizador.<a class="anchor-link" href="#%E2%9C%A8-Exerc%C3%ADcio-1:-Obter-um-n%C3%BAmero-inteiro-entre-m-e-n-introduzido-pelo-utilizador.">¶</a></h4><p>Esta função deverá pedir ao utilizador para introduzir um número inteiro entre os limites dados. Caso o utilizador introduza um número inteiro fora desse intervalo, a função voltar a pedir ao utilizador para introduzir um número inteiro dentros dos limites dados.
+Exemplo:</p>
+<div class="highlight"><pre><span></span><span class="n">value_between</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span> <span class="err">→</span> <span class="mi">2</span> <span class="p">(</span><span class="n">o</span> <span class="n">utilizador</span> <span class="n">introduziu</span> <span class="n">o</span> <span class="n">valor</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h4 id="%E2%9C%A8-Exerc%C3%ADcio-2:-Defina-um-procedimento-que-dado-um-n%C3%BAmero-inteiro-entre-1-e-9-o-escreva-em-numera%C3%A7%C3%A3o-romana.">✨ <strong>Exercício 2</strong>: Defina um procedimento que dado um número inteiro entre 1 e 9 o escreva em numeração romana.<a class="anchor-link" href="#%E2%9C%A8-Exerc%C3%ADcio-2:-Defina-um-procedimento-que-dado-um-n%C3%BAmero-inteiro-entre-1-e-9-o-escreva-em-numera%C3%A7%C3%A3o-romana.">¶</a></h4><p>Exemplo:</p>
+<div class="highlight"><pre><span></span><span class="n">print_units_in_roman</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+        <span class="n">VI</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h4 id="%E2%9C%A8-Exerc%C3%ADcio-3:-Defina-um-procedimento-que-dado-um-n%C3%BAmero-inteiro-entre-1-e-9-o-escreva-em-numera%C3%A7%C3%A3o-romana-considerando-que-este-representa-dezenas.">✨ <strong>Exercício 3</strong>: Defina um procedimento que dado um número inteiro entre 1 e 9 o escreva em numeração romana considerando que este representa dezenas.<a class="anchor-link" href="#%E2%9C%A8-Exerc%C3%ADcio-3:-Defina-um-procedimento-que-dado-um-n%C3%BAmero-inteiro-entre-1-e-9-o-escreva-em-numera%C3%A7%C3%A3o-romana-considerando-que-este-representa-dezenas.">¶</a></h4><pre><code>    print_tens_in_roman(6)
+    LX
+</code></pre>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h4 id="%E2%9C%A8-Exerc%C3%ADcio-4:-Defina-um-procedimento-que,-usando-os-dois-anteriores,-dado-um-n%C3%BAmero-inteiro-entre-1-e-99-o-escreva-em-numera%C3%A7%C3%A3o-romana.">✨ <strong>Exercício 4</strong>: Defina um procedimento que, usando os dois anteriores, dado um número inteiro entre 1 e 99 o escreva em numeração romana.<a class="anchor-link" href="#%E2%9C%A8-Exerc%C3%ADcio-4:-Defina-um-procedimento-que,-usando-os-dois-anteriores,-dado-um-n%C3%BAmero-inteiro-entre-1-e-99-o-escreva-em-numera%C3%A7%C3%A3o-romana.">¶</a></h4><p>Exemplo:</p>
+<pre><code>    print_in_roman(66)
+    LXVI
+</code></pre>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h4 id="%E2%9C%A8-Exerc%C3%ADcio-5:-Defina-um-procedimento-que-escreve-no-ecr%C3%A3-os-n%C3%BAmero-inteiros-entre-m-e-n-(inclusive-em-m-e-exclusive-em-n)-de-h-em-h.-Um-dos-par%C3%A2metros-dever%C3%A1-ser-um-bool-para-definir-se-os-numeros-estar%C3%A3o-por-ordem-crescente-ou-n%C3%A3o.">✨ <strong>Exercício 5</strong>: Defina um procedimento que escreve no ecrã os número inteiros entre <em>m</em> e <em>n</em> (inclusive em <em>m</em> e exclusive em <em>n</em>) de <em>h</em> em <em>h</em>. Um dos parâmetros deverá ser um <code>bool</code> para definir se os numeros estarão por ordem crescente ou não.<a class="anchor-link" href="#%E2%9C%A8-Exerc%C3%ADcio-5:-Defina-um-procedimento-que-escreve-no-ecr%C3%A3-os-n%C3%BAmero-inteiros-entre-m-e-n-(inclusive-em-m-e-exclusive-em-n)-de-h-em-h.-Um-dos-par%C3%A2metros-dever%C3%A1-ser-um-bool-para-definir-se-os-numeros-estar%C3%A3o-por-ordem-crescente-ou-n%C3%A3o.">¶</a></h4><div class="highlight"><pre><span></span><span class="n">Exemplo</span><span class="p">:</span>
+
+        <span class="n">print_ascending_between_in_h</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+        <span class="mi">6</span>
+        <span class="mi">9</span>
+        <span class="mi">12</span>
+        <span class="mi">15</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h1 id=""><a class="anchor" id="3"></a><a class="anchor-link" href="#">¶</a></h1><blockquote>
+<h1 id="3.-Objetos-e-loop-for"><strong>3. Objetos e loop <code>for</code></strong><a class="anchor-link" href="#3.-Objetos-e-loop-for">¶</a></h1></blockquote>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h4 id="%F0%9F%94%B9-O-que-%C3%A9-um-Objeto?">🔹 O que é um Objeto?<a class="anchor-link" href="#%F0%9F%94%B9-O-que-%C3%A9-um-Objeto?">¶</a></h4><ul>
+<li>Entidade que combina <strong>dados</strong> (atributos) e <strong>comportamentos</strong> (métodos).</li>
+</ul>
+<h4 id="%E2%9A%99%EF%B8%8F-Opera%C3%A7%C3%B5es-de-um-Objeto">⚙️ Operações de um Objeto<a class="anchor-link" href="#%E2%9A%99%EF%B8%8F-Opera%C3%A7%C3%B5es-de-um-Objeto">¶</a></h4><ul>
+<li><strong>Funções</strong> → Métodos que retornam um valor.</li>
+<li><strong>Procedimentos</strong> → Métodos que executam ações sem retornar um valor.</li>
+</ul>
+<h4 id="%F0%9F%8F%B7%EF%B8%8F-Tipo-de-um-Objeto">🏷️ Tipo de um Objeto<a class="anchor-link" href="#%F0%9F%8F%B7%EF%B8%8F-Tipo-de-um-Objeto">¶</a></h4><ul>
+<li>Determinado pela <strong>classe</strong> à qual pertence.</li>
+</ul>
+<p>📌 <strong>Exemplos de Tipos de Objetos em Python</strong></p>
+<table>
+<thead>
+<tr>
+<th>Valor</th>
+<th>Tipo de Objeto</th>
+<th>Resultado de <code>type()</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>"Olá, mundo!"</code></td>
+<td>String</td>
+<td><code>&lt;class 'str'&gt;</code></td>
+</tr>
+<tr>
+<td><code>42</code></td>
+<td>Inteiro</td>
+<td><code>&lt;class 'int'&gt;</code></td>
+</tr>
+<tr>
+<td><code>3.14</code></td>
+<td>Decimal</td>
+<td><code>&lt;class 'float'&gt;</code></td>
+</tr>
+<tr>
+<td><code>True</code></td>
+<td>Booleano</td>
+<td><code>&lt;class 'bool'&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<hr/>
+<h3 id="%F0%9F%94%84-Loop-for">🔄 Loop <code>for</code><a class="anchor-link" href="#%F0%9F%94%84-Loop-for">¶</a></h3><h4 id="%F0%9F%94%B9-O-que-%C3%A9-um-Loop-for?">🔹 O que é um Loop <code>for</code>?<a class="anchor-link" href="#%F0%9F%94%B9-O-que-%C3%A9-um-Loop-for?">¶</a></h4><ul>
+<li>Estrutura de repetição usada para percorrer elementos de uma sequência.</li>
+<li>Sintaxe do <code>for</code>:</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h1 id=""><a class="anchor" id="3.1"></a><a class="anchor-link" href="#">¶</a></h1><blockquote>
+<h1 id="3.1.-Exercicios---Objetos-e-loop-for"><strong>3.1. Exercicios - Objetos e loop <code>for</code></strong><a class="anchor-link" href="#3.1.-Exercicios---Objetos-e-loop-for">¶</a></h1></blockquote>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h4 id="%E2%9C%A8-Exerc%C3%ADcio-1:-Escrever-no-ecr%C3%A3-uma-cadeia-de-caracteres-de-forma-a-que-cada-car%C3%A1cter-apare%C3%A7a-numa-linha.">✨ <strong>Exercício 1</strong>: Escrever no ecrã uma cadeia de caracteres de forma a que cada carácter apareça numa linha.<a class="anchor-link" href="#%E2%9C%A8-Exerc%C3%ADcio-1:-Escrever-no-ecr%C3%A3-uma-cadeia-de-caracteres-de-forma-a-que-cada-car%C3%A1cter-apare%C3%A7a-numa-linha.">¶</a></h4><div class="highlight"><pre><span></span><span class="n">print_one_letter_per_line</span><span class="p">(</span><span class="s1">'HAL'</span><span class="p">)</span>
+        <span class="n">H</span>
+        <span class="n">A</span>
+        <span class="n">L</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="%E2%9C%A8-Exerc%C3%ADcio-2:-Contar-o-n%C3%BAmero-de-vogais-numa-cadeia-de-caracteres">✨ <strong>Exercício 2</strong>: Contar o número de vogais numa cadeia de caracteres<a class="anchor-link" href="#%E2%9C%A8-Exerc%C3%ADcio-2:-Contar-o-n%C3%BAmero-de-vogais-numa-cadeia-de-caracteres">¶</a></h3><p>Escreva uma função que receba uma palavra e devolva o número de vogais (<code>a</code>, <code>e</code>, <code>i</code>, <code>o</code>, <code>u</code>) presentes na mesma.</p>
+<div class="highlight"><pre><span></span><span class="n">count_vowels</span><span class="p">(</span><span class="s2">"ISCTE"</span><span class="p">)</span> <span class="err">→</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="%E2%9C%A8-Exerc%C3%ADcio-3:-Inverter-uma-cadeia-de-caracteres">✨ <strong>Exercício 3</strong>: Inverter uma cadeia de caracteres<a class="anchor-link" href="#%E2%9C%A8-Exerc%C3%ADcio-3:-Inverter-uma-cadeia-de-caracteres">¶</a></h3><p>Escreva um procedimento que receba uma palavra e devolva a mesma palavra ao contrário.</p>
+<div class="highlight"><pre><span></span><span class="n">reverse_string</span><span class="p">(</span><span class="s2">"ISCTE"</span><span class="p">)</span> <span class="err">→</span> <span class="s2">"ETCSI"</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="%E2%9C%A8-Exerc%C3%ADcio-4:-Extrair-uma-parte-de-uma-cadeia-de-caracteres">✨ <strong>Exercício 4</strong>: Extrair uma parte de uma cadeia de caracteres<a class="anchor-link" href="#%E2%9C%A8-Exerc%C3%ADcio-4:-Extrair-uma-parte-de-uma-cadeia-de-caracteres">¶</a></h3><p>Escreva um procedimento que receba uma palavra, um índice inicial e um índice final, devolvendo apenas essa parte da palavra.</p>
+<div class="highlight"><pre><span></span><span class="n">substring</span><span class="p">(</span><span class="s2">"ISCTE"</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span> <span class="err">→</span> <span class="n">SCT</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h4 id="%E2%9C%A8-Exerc%C3%ADcio-5:-Defina-um-procedimento-que-dada-uma-cadeia-de-caracteres-escreve-no-ecr%C3%A3-essa-cadeia-de-caracteres-de-forma-a-que-cada-car%C3%A1cter-apare%C3%A7a-numa-linha,-por-ordem-inversa.">✨ <strong>Exercício 5</strong>: Defina um procedimento que dada uma cadeia de caracteres escreve no ecrã essa cadeia de caracteres de forma a que cada carácter apareça numa linha, por ordem inversa.<a class="anchor-link" href="#%E2%9C%A8-Exerc%C3%ADcio-5:-Defina-um-procedimento-que-dada-uma-cadeia-de-caracteres-escreve-no-ecr%C3%A3-essa-cadeia-de-caracteres-de-forma-a-que-cada-car%C3%A1cter-apare%C3%A7a-numa-linha,-por-ordem-inversa.">¶</a></h4><div class="highlight"><pre><span></span><span class="n">Exemplo</span><span class="p">:</span>
+
+        <span class="n">print_one_letter_per_line_inverted</span><span class="p">(</span><span class="s1">'GOD'</span><span class="p">)</span>
+        <span class="n">D</span>
+        <span class="n">O</span>
+        <span class="n">G</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h4 id="%E2%9C%A8-Exerc%C3%ADcio-6:-Defina-uma-fun%C3%A7%C3%A3o-que-dada-uma-cadeia-de-caracteres-devolva-o-n%C3%BAmero-de-letras-mai%C3%BAsculas-que-esta-cont%C3%A9m.">✨ <strong>Exercício 6</strong>: Defina uma função que dada uma cadeia de caracteres devolva o número de letras maiúsculas que esta contém.<a class="anchor-link" href="#%E2%9C%A8-Exerc%C3%ADcio-6:-Defina-uma-fun%C3%A7%C3%A3o-que-dada-uma-cadeia-de-caracteres-devolva-o-n%C3%BAmero-de-letras-mai%C3%BAsculas-que-esta-cont%C3%A9m.">¶</a></h4><p>O tipo cadeia de caracteres (<code>str</code>) tem uma função que devolve verdadeiro caso todos os caracteres de uma cadeia de caracteres sejam maiúsculas — <code>isupper()</code>.</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h1 id=""><a class="anchor" id="3.2"></a><a class="anchor-link" href="#">¶</a></h1><blockquote>
+<h1 id="3.2.-Desafio"><strong>3.2. Desafio</strong><a class="anchor-link" href="#3.2.-Desafio">¶</a></h1></blockquote>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h4 id="%E2%9C%A8-Desafio:-Defina-os-procedimentos-e-as-fun%C3%A7%C3%B5es-necess%C3%A1rias-para-jogar-o-jogo-do-enforcado.">✨ <strong>Desafio</strong>: Defina os procedimentos e as funções necessárias para jogar o jogo do enforcado.<a class="anchor-link" href="#%E2%9C%A8-Desafio:-Defina-os-procedimentos-e-as-fun%C3%A7%C3%B5es-necess%C3%A1rias-para-jogar-o-jogo-do-enforcado.">¶</a></h4><p>No jogo do enforcado, o jogador tem de adivinhar uma palavra que desconhece perguntado em cada jogada se uma dada letra existe na palavra. Sempre que a letra pedida existe na palavra é mostrada a palavra com todas as letras que pedidas que estavam correctas. Sempre que a letra não existe é contabilizada uma tentativa errada. O jogador tem um determinado número de tentativas erradas para adivinhar a palavras. Se ultrapassar esse número de tentativas, perde. Para jogar o jogo deve invocar o procedimento <code>play_hangman()</code> como abaixo.</p>
+<pre><code>    play_hangman('Programming', 5)
+
+    Adivinhe a palavra: ___________
+    Letra:  a
+    Adivinhe a palavra: _____a_____
+    Letra:  m
+    Adivinhe a palavra: _____amm___
+    Letra:  p
+    Errou, já só faltam 4 tentativas
+    Adivinhe a palavra: _____amm___
+</code></pre>
 </div>
 </div>
 </div>
