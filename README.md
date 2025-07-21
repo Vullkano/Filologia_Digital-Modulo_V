@@ -2,7 +2,7 @@
 
 ## Tópicos Abordados
 
-[![Colab](https://colab.research.google.com/github/Vullkano/Filologia_Digital-Modulo_V/blob/main/FilologiaDigitalBase.ipynb)
+[![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Vullkano/Filologia_Digital-Modulo_V/blob/main/FilologiaDigitalBase.ipynb)
 
 ### 1) Motivação para Usar uma Linguagem de Programação
 - **Objetivo:** Apresentar as vantagens e a importância de aprender a programar.
